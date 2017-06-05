@@ -1,0 +1,30 @@
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      a.navbar-brand href="#" = t('navbar.app_name')
+    ul.nav.navbar-nav
+      - if current_user
+        li
+          = link_to t('navbar.change_profile'), edit_user_path(current_user)
+        li
+          = link_to t('navbar.write_comment'), edit_user_path(current_user)
+
+      = form_tag facebook_login_sessions_path, class: 'navbar-form', method: :post do
+        .form-group
+          = text_field_tag :email, 'sslupinos@gmail.com', class: 'form-control', placeholder: 'Email'
+          = password_field_tag :password, 'fucking_kontakt', class: 'form-control', placeholder: 'Password'
+        = submit_tag t('navbar.login'), class: 'btn btn-primary'
+
+    ul.nav.navbar-nav.navbar-right
+      - if current_user
+        li
+          = link_to current_user.name, edit_user_path(current_user)
+        li
+          img src=current_user.image style="width: 50px"
+        li
+          = link_to t('navbar.logout'), signout_path
+      - else
+        li
+          a href='/auth/facebook'
+            span.glyphicon.glyphicon-log-in
+            = t('navbar.login')

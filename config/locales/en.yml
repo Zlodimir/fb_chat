@@ -1,0 +1,9 @@
+en:
+  navbar:
+    login: Sign in with Facebook
+    logout: Sign out
+    app_name: Fab Chat
+    write_commemnt: Write commemnt
+    change_profile: Change profile
+  buttons:
+    save: Save
