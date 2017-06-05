@@ -8,12 +8,12 @@ nav.navbar.navbar-inverse
           = link_to t('navbar.change_profile'), edit_user_path(current_user)
         li
           = link_to t('navbar.write_comment'), edit_user_path(current_user)
-
-      = form_tag facebook_login_sessions_path, class: 'navbar-form', method: :post do
-        .form-group
-          = text_field_tag :email, 'sslupinos@gmail.com', class: 'form-control', placeholder: 'Email'
-          = password_field_tag :password, 'fucking_kontakt', class: 'form-control', placeholder: 'Password'
-        = submit_tag t('navbar.login'), class: 'btn btn-primary'
+      li
+        = form_tag facebook_login_sessions_path, class: 'navbar-form', method: :post do
+          .form-group
+            = text_field_tag :email, 'sslupinos@gmail.com', class: 'form-control', placeholder: 'Email'
+            = password_field_tag :password, 'fucking_kontakt', class: 'form-control', placeholder: 'Password'
+          = submit_tag t('navbar.login'), class: 'btn btn-primary'
 
     ul.nav.navbar-nav.navbar-right
       - if current_user
